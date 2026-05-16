@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const cabinet = {
+  nom: "Cabinet Sérénité",
+  baseline: "Ostéopathie pour adultes, enfants et nourrissons",
+  adresse: "15 rue des Tilleuls, 75011 Paris",
+  telephone: "06 12 34 56 78",
+  email: "contact@cabinet-serenite.fr",
+  horaires: [
+    { jour: "Lundi - Vendredi", heures: "8h00 - 20h00" },
+    { jour: "Samedi", heures: "9h00 - 13h00" },
+    { jour: "Dimanche", heures: "Fermé" },
+  ],
+};
+
+const services = [
+  { icone: "👤", titre: "Ostéopathie adulte", description: "Douleurs dorsales, cervicales, migraines, troubles digestifs, suivi post-traumatique." },
+  { icone: "👶", titre: "Ostéopathie pédiatrique", description: "Reflux, plagiocéphalie, troubles du sommeil, suite à un accouchement difficile." },
+  { icone: "🤰", titre: "Femme enceinte", description: "Accompagnement pendant la grossesse, préparation à l'accouchement, suivi post-partum." },
+  { icone: "🏃", titre: "Sportifs", description: "Préparation et récupération, traitement des blessures, optimisation des performances." },
+];
+---
+
+<Layout>
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-emerald-800">{cabinet.nom}</a>
+      <ul class="hidden md:flex gap-8 text-slate-700 font-medium">
+        <li><a href="#apropos" class="hover:text-emerald-700 transition-colors">À propos</a></li>
+        <li><a href="#services" class="hover:text-emerald-700 transition-colors">Services</a></li>
+        <li><a href="#tarifs" class="hover:text-emerald-700 transition-colors">Tarifs</a></li>
+        <li><a href="#contact" class="hover:text-emerald-700 transition-colors">Contact</a></li>
+      </ul>
+      <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-5 py-2 rounded-lg transition-colors">Prendre RDV</a>
+    </nav>
+  </header>
+
+  <section class="bg-gradient-to-br from-emerald-50 to-blue-50 py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="text-emerald-700 font-semibold mb-4 tracking-wide uppercase text-sm">À votre écoute depuis 2015</p>
+      <h1 class="text-5xl md:text-6xl font-bold text-emerald-900 mb-6 leading-tight">{cabinet.baseline}</h1>
+      <p class="text-xl text-slate-700 mb-10 max-w-2xl mx-auto leading-relaxed">Une approche douce et personnalisée pour soulager vos douleurs, retrouver votre mobilité et améliorer votre bien-être au quotidien.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-3 rounded-lg shadow-md transition-colors">Prendre rendez-vous</a>
+        <a href="#services" class="bg-white hover:bg-slate-50 text-emerald-700 font-medium px-8 py-3 rounded-lg border-2 border-emerald-200 transition-colors">Découvrir les services</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos" class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-8 text-center">À propos du cabinet</h2>
+      <div class="text-lg text-slate-700 leading-relaxed space-y-4">
+        <p>Installé au cœur du 11ème arrondissement de Paris, le Cabinet Sérénité accueille petits et grands dans un environnement chaleureux et apaisant. Nous croyons à une médecine douce, attentive, qui prend le temps d'écouter et de comprendre chaque patient.</p>
+        <p>Notre approche combine techniques manuelles éprouvées et regard global sur la santé. Chaque consultation commence par un échange approfondi sur votre histoire et vos symptômes, suivi d'un traitement adapté à votre situation.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="py-20 px-6 bg-slate-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-4 text-center">Nos services</h2>
+      <p class="text-lg text-slate-600 text-center mb-12 max-w-2xl mx-auto">Un accompagnement adapté à chaque âge et chaque situation.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {services.map((service) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div class="text-4xl mb-4">{service.icone}</div>
+            <h3 class="text-xl font-bold text-emerald-900 mb-3">{service.titre}</h3>
+            <p class="text-slate-600 leading-relaxed">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="tarifs" class="py-20 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-emerald-900 mb-12 text-center">Tarifs & informations</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-emerald-50 rounded-xl p-8">
+          <h3 class="text-xl font-bold text-emerald-900 mb-6">Tarifs des consultations</h3>
+          <ul class="space-y-3 text-slate-700">
+            <li class="flex justify-between border-b border-emerald-100 pb-2"><span>Adulte</span><span class="font-semibold">65 €</span></li>
+            <li class="flex justify-between border-b border-emerald-100 pb-2"><span>Enfant (jusqu'à 12 ans)</span><span class="font-semibold">55 €</span></li>
+            <li class="flex justify-between border-b border-emerald-100 pb-2"><span>Nourrisson</span><span class="font-semibold">55 €</span></li>
+            <li class="flex justify-between"><span>Femme enceinte</span><span class="font-semibold">65 €</span></li>
+          </ul>
+          <p class="text-sm text-slate-500 mt-4">Paiement par carte, espèces ou chèque. Reçu remis pour remboursement mutuelle.</p>
+        </div>
+        <div class="bg-blue-50 rounded-xl p-8">
+          <h3 class="text-xl font-bold text-emerald-900 mb-6">Horaires d'ouverture</h3>
+          <ul class="space-y-3 text-slate-700">
+            {cabinet.horaires.map((h) => (
+              <li class="flex justify-between border-b border-blue-100 pb-2"><span>{h.jour}</span><span class="font-semibold">{h.heures}</span></li>
+            ))}
+          </ul>
+          <p class="text-sm text-slate-500 mt-4">Consultations sur rendez-vous uniquement. Urgences traitées dans la journée.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20 px-6 bg-emerald-900 text-white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">Prendre rendez-vous</h2>
+      <p class="text-emerald-100 text-center mb-12 text-lg">Une question, un besoin urgent ? Contactez-nous.</p>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-bold mb-6">Coordonnées</h3>
+          <ul class="space-y-4 text-emerald-100">
+            <li>📍 {cabinet.adresse}</li>
+            <li>📞 {cabinet.telephone}</li>
+            <li>✉️ {cabinet.email}</li>
+          </ul>
+          <div class="mt-8 p-6 bg-emerald-800 rounded-lg">
+            <p class="font-semibold mb-2">🚇 Accès</p>
+            <p class="text-emerald-100 text-sm">Métro Voltaire (ligne 9) à 3 min à pied. Bus 56 et 76. Parking public à 100m.</p>
+          </div>
+        </div>
+        <form class="bg-white text-slate-700 rounded-xl p-6">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-semibold mb-2">Nom *</label>
+              <input type="text" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2">Email *</label>
+              <input type="email" required class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2">Téléphone</label>
+              <input type="tel" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold mb-2">Message *</label>
+              <textarea required rows="4" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3 rounded-lg transition-colors">Envoyer le message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-emerald-950 text-emerald-100 py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h4 class="text-white font-bold mb-3">{cabinet.nom}</h4>
+          <p class="text-sm leading-relaxed">Cabinet d'ostéopathie au cœur du 11ème arrondissement. Soin, écoute et expertise.</p>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Liens utiles</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#apropos" class="hover:text-white transition-colors">À propos</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="#tarifs" class="hover:text-white transition-colors">Tarifs</a></li>
+            <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-white font-bold mb-3">Légal</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:text-white transition-colors">Mentions légales</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-emerald-800 pt-6 text-center text-sm">© 2026 {cabinet.nom}. Tous droits réservés.</div>
+    </div>
+  </footer>
+</Layout>
